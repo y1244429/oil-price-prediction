@@ -1,0 +1,144 @@
+2026-03-03 12:14:15,284 - INFO - 原油数据获取器初始化完成
+2026-03-03 12:14:15,284 - INFO - AKShare数据获取器初始化完成
+2026-03-03 12:14:15,284 - INFO - yFinance数据获取器初始化完成
+2026-03-03 12:14:15,284 - INFO - 特征工程模块初始化完成
+2026-03-03 12:14:15,284 - INFO - 长期趋势模型初始化完成
+2026-03-03 12:14:15,285 - INFO - 中期波动模型初始化完成
+2026-03-03 12:14:15,285 - INFO - 报告生成器初始化完成
+🛢️  原油价格预测系统 Web界面启动中...
+📊 访问地址: http://localhost:5003
+📱 局域网访问: http://0.0.0.0:5003
+
+按 Ctrl+C 停止服务器
+
+ * Serving Flask app 'app'
+ * Debug mode: on
+2026-03-03 12:14:15,304 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5003
+ * Running on http://192.168.3.25:5003
+2026-03-03 12:14:15,304 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-03 12:14:15,311 - INFO -  * Restarting with watchdog (fsevents)
+2026-03-03 12:14:17,382 - INFO - 原油数据获取器初始化完成
+2026-03-03 12:14:17,382 - INFO - AKShare数据获取器初始化完成
+2026-03-03 12:14:17,382 - INFO - yFinance数据获取器初始化完成
+2026-03-03 12:14:17,382 - INFO - 特征工程模块初始化完成
+2026-03-03 12:14:17,382 - INFO - 长期趋势模型初始化完成
+2026-03-03 12:14:17,382 - INFO - 中期波动模型初始化完成
+2026-03-03 12:14:17,382 - INFO - 报告生成器初始化完成
+2026-03-03 12:14:17,390 - WARNING -  * Debugger is active!
+2026-03-03 12:14:17,405 - INFO -  * Debugger PIN: 373-289-981
+2026-03-03 12:14:23,462 - INFO - 127.0.0.1 - - [03/Mar/2026 12:14:23] "GET / HTTP/1.1" 200 -
+2026-03-03 12:14:24,334 - INFO - ============================================================
+2026-03-03 12:14:24,334 - INFO - 开始使用yFinance获取所有原油市场数据...
+2026-03-03 12:14:24,334 - INFO - ============================================================
+2026-03-03 12:14:24,335 - INFO - 1. 获取原油期货价格...
+2026-03-03 12:14:24,335 - INFO - 开始获取原油价格数据（周期: 1y）...
+2026-03-03 12:14:27,716 - WARNING - 请求失败，2秒后重试 (1/3): Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:14:32,096 - WARNING - 请求失败，4秒后重试 (2/3): Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:14:41,107 - ERROR - 请求失败，已达到最大重试次数: Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:14:41,107 - ERROR - ❌ 获取WTI数据失败: Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:14:46,229 - INFO - ============================================================
+2026-03-03 12:14:46,229 - INFO - 开始使用yFinance获取所有原油市场数据...
+2026-03-03 12:14:46,229 - INFO - ============================================================
+2026-03-03 12:14:46,229 - INFO - 1. 获取原油期货价格...
+2026-03-03 12:14:46,229 - INFO - 开始获取原油价格数据（周期: 1y）...
+2026-03-03 12:14:46,596 - WARNING - 请求失败，2秒后重试 (1/3): Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:14:48,829 - WARNING - 请求失败，2秒后重试 (1/3): Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:14:52,020 - WARNING - 请求失败，4秒后重试 (2/3): Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:14:53,977 - WARNING - 请求失败，4秒后重试 (2/3): Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:14:58,933 - ERROR - 请求失败，已达到最大重试次数: Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:14:58,933 - ERROR - ❌ 获取Brent数据失败: Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:14:58,933 - INFO - 2. 获取美元指数...
+2026-03-03 12:14:58,933 - INFO - 获取美元指数数据...
+2026-03-03 12:15:01,274 - ERROR - ❌ 获取美元指数失败: Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:15:01,277 - INFO - 3. 生成其他市场数据（模拟）...
+2026-03-03 12:15:01,278 - INFO -    EIA库存数据: 模拟
+2026-03-03 12:15:01,283 - INFO -    OPEC产量数据: 模拟
+2026-03-03 12:15:01,284 - INFO -    钻机数数据: 模拟
+2026-03-03 12:15:01,284 - INFO - 4. 获取VIX指数...
+2026-03-03 12:15:01,345 - ERROR - 请求失败，已达到最大重试次数: Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:15:01,345 - ERROR - ❌ 获取WTI数据失败: Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:15:04,206 - WARNING - ⚠️  获取VIX失败: Too Many Requests. Rate limited. Try after a while.，使用模拟数据
+2026-03-03 12:15:04,208 - INFO - 5. 合并数据...
+2026-03-03 12:15:04,217 - INFO - 数据合并完成，共365条记录
+2026-03-03 12:15:04,217 - INFO - ============================================================
+2026-03-03 12:15:04,217 - INFO - yFinance数据获取完成
+2026-03-03 12:15:04,218 - INFO - ============================================================
+2026-03-03 12:15:04,239 - INFO - 127.0.0.1 - - [03/Mar/2026 12:15:04] "GET /api/data HTTP/1.1" 200 -
+2026-03-03 12:15:06,162 - WARNING - 请求失败，2秒后重试 (1/3): Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:15:10,748 - WARNING - 请求失败，4秒后重试 (2/3): Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:15:17,305 - ERROR - 请求失败，已达到最大重试次数: Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:15:17,305 - ERROR - ❌ 获取Brent数据失败: Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:15:17,305 - INFO - 2. 获取美元指数...
+2026-03-03 12:15:17,305 - INFO - 获取美元指数数据...
+2026-03-03 12:15:19,822 - ERROR - ❌ 获取美元指数失败: Too Many Requests. Rate limited. Try after a while.
+2026-03-03 12:15:19,824 - INFO - 3. 生成其他市场数据（模拟）...
+2026-03-03 12:15:19,826 - INFO -    EIA库存数据: 模拟
+2026-03-03 12:15:19,826 - INFO -    OPEC产量数据: 模拟
+2026-03-03 12:15:19,827 - INFO -    钻机数数据: 模拟
+2026-03-03 12:15:19,827 - INFO - 4. 获取VIX指数...
+2026-03-03 12:15:22,766 - WARNING - ⚠️  获取VIX失败: Too Many Requests. Rate limited. Try after a while.，使用模拟数据
+2026-03-03 12:15:22,767 - INFO - 5. 合并数据...
+2026-03-03 12:15:22,773 - INFO - 数据合并完成，共365条记录
+2026-03-03 12:15:22,773 - INFO - ============================================================
+2026-03-03 12:15:22,773 - INFO - yFinance数据获取完成
+2026-03-03 12:15:22,773 - INFO - ============================================================
+2026-03-03 12:15:22,795 - INFO - 127.0.0.1 - - [03/Mar/2026 12:15:22] "GET /api/data HTTP/1.1" 200 -
+2026-03-03 12:15:22,800 - INFO - 127.0.0.1 - - [03/Mar/2026 12:15:22] "POST /api/predict HTTP/1.1" 200 -
+2026-03-03 12:15:22,804 - INFO - 127.0.0.1 - - [03/Mar/2026 12:15:22] "GET /api/factors HTTP/1.1" 200 -
+2026-03-03 12:15:22,809 - INFO - 127.0.0.1 - - [03/Mar/2026 12:15:22] "GET /api/scenarios HTTP/1.1" 200 -
+2026-03-03 12:15:27,002 - INFO - 127.0.0.1 - - [03/Mar/2026 12:15:27] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/flask/app.py", line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/flask/app.py", line 1476, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ydy/CodeBuddy/20260303110910-oil-price-prediction/app.py", line 82, in get_data
+    'data_source': data_source
+                   ^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'data_source' where it is not associated with a value
+2026-03-03 12:15:27,006 - INFO - 127.0.0.1 - - [03/Mar/2026 12:15:27] "POST /api/predict HTTP/1.1" 200 -
+2026-03-03 12:15:27,008 - INFO - 127.0.0.1 - - [03/Mar/2026 12:15:27] "GET /api/factors HTTP/1.1" 200 -
+2026-03-03 12:15:27,010 - INFO - 127.0.0.1 - - [03/Mar/2026 12:15:27] "GET /api/scenarios HTTP/1.1" 200 -
+2026-03-03 12:17:08,489 - INFO - 127.0.0.1 - - [03/Mar/2026 12:17:08] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/flask/app.py", line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/flask/app.py", line 1476, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ydy/CodeBuddy/20260303110910-oil-price-prediction/app.py", line 82, in get_data
+    'data_source': data_source
+                   ^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'data_source' where it is not associated with a value
+2026-03-03 12:17:08,492 - INFO - 127.0.0.1 - - [03/Mar/2026 12:17:08] "POST /api/predict HTTP/1.1" 200 -
+2026-03-03 12:17:08,494 - INFO - 127.0.0.1 - - [03/Mar/2026 12:17:08] "GET /api/factors HTTP/1.1" 200 -
+2026-03-03 12:17:08,497 - INFO - 127.0.0.1 - - [03/Mar/2026 12:17:08] "GET /api/scenarios HTTP/1.1" 200 -
