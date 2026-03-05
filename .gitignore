@@ -47,3 +47,7 @@ reports/
 *.pkl
 *.h5
 *.hdf5
+
+# Environment variables
+.env
+.env.local

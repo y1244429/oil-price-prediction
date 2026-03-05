@@ -21,8 +21,12 @@ pmdarima>=1.8.0
 # 数据获取
 akshare>=1.8.0
 yfinance>=0.2.0
+tushare>=1.4.0
 requests>=2.27.0
 beautifulsoup4>=4.10.0
+feedparser>=6.0.0
+python-dateutil>=2.8.0
+lxml>=4.9.0
 
 # 数据可视化
 matplotlib>=3.5.0

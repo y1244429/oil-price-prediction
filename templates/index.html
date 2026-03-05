@@ -221,6 +221,157 @@
             font-size: 1.5rem;
             margin-bottom: 10px;
         }
+
+        /* 新闻样式 */
+        .news-item {
+            border-left: 4px solid var(--accent-color);
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .news-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .news-item.high-impact {
+            border-left-color: var(--danger-color);
+            background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+        }
+
+        .news-item.medium-impact {
+            border-left-color: var(--warning-color);
+        }
+
+        .news-item.positive {
+            border-left-color: var(--success-color);
+        }
+
+        .news-item.negative {
+            border-left-color: var(--danger-color);
+        }
+
+        .news-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .news-item a.news-title-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            display: block;
+            transition: color 0.2s ease;
+        }
+
+        .news-item a.news-title-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .news-meta {
+            font-size: 0.75rem;
+            color: #6c757d;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .news-source {
+            background: var(--accent-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .news-time {
+            color: #6c757d;
+        }
+
+        .news-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            margin-left: auto;
+        }
+
+        .news-link:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: scale(1.1);
+        }
+
+        .news-link svg {
+            display: block;
+        }
+
+        .news-summary {
+            font-size: 0.85rem;
+            color: #495057;
+            line-height: 1.4;
+        }
+
+        .news-category {
+            font-size: 0.7rem;
+            background: linear-gradient(135deg, var(--success-color) 0%, #27ae60 100%);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .news-impact-badge {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            margin-left: 5px;
+        }
+
+        .impact-high {
+            background: var(--danger-color);
+            color: white;
+        }
+
+        .impact-medium {
+            background: var(--warning-color);
+            color: white;
+        }
+
+        /* 表格样式 */
+        .table {
+            margin-bottom: 0;
+        }
+
+        .table thead th {
+            border-top: none;
+            font-weight: 600;
+            color: var(--primary-color);
+            background: #f8f9fa;
+        }
+
+        .table td {
+            vertical-align: middle;
+        }
+
+        .positive {
+            color: var(--success-color);
+            font-weight: 500;
+        }
+
+        .negative {
+            color: var(--danger-color);
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -248,6 +399,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#report">预测报告</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#news">新闻资讯</a>
                     </li>
                 </ul>
             </div>
@@ -444,6 +598,66 @@
                         <button class="btn btn-primary mb-3" onclick="generateReport()">生成预测报告</button>
                         <div class="report-text" id="report-text">
                             点击"生成预测报告"按钮，系统将根据最新预测结果生成详细的分析报告。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 新闻资讯 -->
+        <div class="row mt-4" id="news">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="bi bi-cpu"></i> 💻 科技新闻
+                    </div>
+                    <div class="card-body" id="tech-news-container">
+                        <div class="text-center">加载中...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="bi bi-currency-dollar"></i> 📈 财经新闻
+                    </div>
+                    <div class="card-body" id="finance-news-container">
+                        <div class="text-center">加载中...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 期货行情 -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="bi bi-graph-up"></i> 📊 期货行情
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-sm" id="futures-table">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>名称</th>
+                                        <th>代号</th>
+                                        <th>最新</th>
+                                        <th>开市</th>
+                                        <th>高</th>
+                                        <th>低</th>
+                                        <th>升跌</th>
+                                        <th>升跌率%</th>
+                                        <th>成交量</th>
+                                        <th>时间</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="futures-body">
+                                    <tr>
+                                        <td colspan="10" class="text-center">加载中...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -826,7 +1040,149 @@
         document.addEventListener('DOMContentLoaded', function() {
             initChart();
             fetchData();
+            fetchNews();
+            fetchFuturesQuotes();
         });
+
+        // 加载新闻
+        async function fetchNews() {
+            try {
+                const response = await fetch('/api/news');
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    displayTechNews(result.tech_news);
+                    displayFinanceNews(result.finance_news);
+                } else {
+                    console.error('获取新闻失败:', result.message);
+                }
+            } catch (error) {
+                console.error('获取新闻失败:', error);
+            }
+        }
+
+        // 显示科技新闻
+        function displayTechNews(news) {
+            const container = document.getElementById('tech-news-container');
+            if (!container) return;
+
+            if (!news || news.length === 0) {
+                container.innerHTML = '<div class="text-center">暂无新闻</div>';
+                return;
+            }
+
+            const html = news.map(item => `
+                <div class="news-item ${item.sentiment} ${item.impact}-impact">
+                    <div class="news-meta">
+                        <span class="news-source">${item.source}</span>
+                        <span class="news-time">${item.time}</span>
+                        <span class="news-impact-badge impact-${item.impact}">
+                            ${item.impact === 'high' ? '高影响' : '中影响'}
+                        </span>
+                        ${item.link ? `<a href="${item.link}" target="_blank" class="news-link" title="查看原文">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>` : ''}
+                    </div>
+                    ${item.link ? `<a href="${item.link}" target="_blank" class="news-title-link">${item.title}</a>` : `<div class="news-title">${item.title}</div>`}
+                    <div class="news-meta">
+                        <span class="news-category">${item.category}</span>
+                    </div>
+                    <div class="news-summary">${item.summary}</div>
+                </div>
+            `).join('');
+
+            container.innerHTML = html;
+        }
+
+        // 显示财经新闻
+        function displayFinanceNews(news) {
+            const container = document.getElementById('finance-news-container');
+            if (!container) return;
+
+            if (!news || news.length === 0) {
+                container.innerHTML = '<div class="text-center">暂无新闻</div>';
+                return;
+            }
+
+            const html = news.map(item => `
+                <div class="news-item ${item.sentiment} ${item.impact}-impact">
+                    <div class="news-meta">
+                        <span class="news-source">${item.source}</span>
+                        <span class="news-time">${item.time}</span>
+                        <span class="news-impact-badge impact-${item.impact}">
+                            ${item.impact === 'high' ? '高影响' : '中影响'}
+                        </span>
+                        ${item.link ? `<a href="${item.link}" target="_blank" class="news-link" title="查看原文">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>` : ''}
+                    </div>
+                    ${item.link ? `<a href="${item.link}" target="_blank" class="news-title-link">${item.title}</a>` : `<div class="news-title">${item.title}</div>`}
+                    <div class="news-meta">
+                        <span class="news-category">${item.category}</span>
+                    </div>
+                    <div class="news-summary">${item.summary}</div>
+                </div>
+            `).join('');
+
+            container.innerHTML = html;
+        }
+
+        // 加载期货行情
+        async function fetchFuturesQuotes() {
+            try {
+                const response = await fetch('/api/futures-quotes');
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    displayFuturesQuotes(result.quotes);
+                } else {
+                    console.error('获取期货行情失败:', result.message);
+                }
+            } catch (error) {
+                console.error('获取期货行情失败:', error);
+            }
+        }
+
+        // 显示期货行情
+        function displayFuturesQuotes(quotes) {
+            const tbody = document.getElementById('futures-body');
+            if (!tbody) return;
+
+            if (!quotes || quotes.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="10" class="text-center">暂无数据</td></tr>';
+                return;
+            }
+
+            const html = quotes.map(quote => {
+                const changeClass = quote.change >= 0 ? 'text-success' : 'text-danger';
+                const changePrefix = quote.change >= 0 ? '+' : '';
+
+                return `
+                    <tr>
+                        <td><strong>${quote.name}</strong></td>
+                        <td>${quote.symbol}</td>
+                        <td>${quote.price}</td>
+                        <td>${quote.open}</td>
+                        <td>${quote.high}</td>
+                        <td>${quote.low}</td>
+                        <td class="${changeClass}">${changePrefix}${quote.change}</td>
+                        <td class="${changeClass}">${changePrefix}${quote.changePercent}%</td>
+                        <td>${quote.volume}</td>
+                        <td><small>${quote.time}</small></td>
+                    </tr>
+                `;
+            }).join('');
+
+            tbody.innerHTML = html;
+        }
     </script>
 </body>
 </html>
